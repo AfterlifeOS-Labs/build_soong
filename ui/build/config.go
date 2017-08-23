@@ -264,6 +264,8 @@ func NewConfig(ctx Context, args ...string) Config {
 		outDir := "out"
 		if baseDir, ok := ret.environ.Get("OUT_DIR_COMMON_BASE"); ok {
 			outDir = filepath.Join(baseDir, filepath.Base(wd))
+		} else {
+			outDir = filepath.Join(os.Getenv("TOP"), outDir)
 		}
 		ret.environ.Set("OUT_DIR", ret.sandboxPath(wd, outDir))
 	}
