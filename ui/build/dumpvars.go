@@ -172,6 +172,9 @@ var BannerVars = []string{
 	"OUT_DIR",
 	"SOONG_SDK_SNAPSHOT_TARGET_BUILD_RELEASE",
 	"WITH_SU",
+	"GMS_MAKEFILE",
+	"MAINLINE_MODULES_MAKEFILE",
+	"PRODUCT_SOONG_NAMESPACES",
 }
 
 func Banner(config Config, make_vars map[string]string) string {
@@ -278,7 +281,6 @@ func runMakeProductConfig(ctx Context, config Config) {
 		"HOST_CROSS_ARCH",
 		"HOST_CROSS_2ND_ARCH",
 		"HOST_BUILD_TYPE",
-		"PRODUCT_SOONG_NAMESPACES",
 
 		"DEFAULT_WARNING_BUILD_MODULE_TYPES",
 		"DEFAULT_ERROR_BUILD_MODULE_TYPES",
