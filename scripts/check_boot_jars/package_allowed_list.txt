@@ -269,6 +269,9 @@ org\.chromium\.arc\..*
 com\.google\.wear
 com\.google\.wear\..*
 
+# LMODroid adds
+com\.libremobileos\..*
+
 # NT adds
 com\.nothing
 com\.nothing\..*
