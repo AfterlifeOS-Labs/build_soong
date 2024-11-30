@@ -275,6 +275,9 @@ vendor\.lineage\.health.*
 vendor\.lineage\.livedisplay.*
 vendor\.lineage\.touch.*
 
+# LMOFreeform
+com\.libremobileos\..*
+
 # QC adds
 com.qualcomm.qti
 com.quicinc.tcmiface
