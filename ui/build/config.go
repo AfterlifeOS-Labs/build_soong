@@ -1252,6 +1252,32 @@ func (c *configImpl) canSupportRBE() bool {
 	return true
 }
 
+func (c *configImpl) UseABFS() bool {
+	if v, ok := c.environ.Get("NO_ABFS"); ok {
+		v = strings.ToLower(strings.TrimSpace(v))
+		if v == "true" || v == "1" {
+			return false
+		}
+	}
+
+	abfsBox := c.PrebuiltBuildTool("abfsbox")
+	err := exec.Command(abfsBox, "hash", srcDirFileCheck).Run()
+	return err == nil
+}
+
+func (c *configImpl) sandboxPath(base, in string) string {
+	if !c.UseABFS() {
+		return in
+	}
+
+	rel, err := filepath.Rel(base, in)
+	if err != nil {
+		return in
+	}
+
+	return filepath.Join(abfsSrcDir, rel)
+}
+
 func (c *configImpl) UseRBE() bool {
 	// These alternate modes of running Soong do not use RBE / reclient.
 	if c.Queryview() || c.JsonModuleGraph() {
