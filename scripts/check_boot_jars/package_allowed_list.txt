@@ -290,3 +290,6 @@ vendor\.lineage\..*
 vendor\.lineage\.health.*
 vendor\.lineage\.livedisplay.*
 vendor\.lineage\.touch.*
+
+# Nothing adds
+com.nothing.*
